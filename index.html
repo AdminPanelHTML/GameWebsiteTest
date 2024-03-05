@@ -51,6 +51,7 @@
 <body>
 
 <button onclick="openPopup()">Open Popup</button>
+<button onclick="openExternalLink()">Open External Link</button>
 
 <div id="overlay"></div>
 <div id="popup-container">
@@ -68,6 +69,10 @@
     function closePopup() {
         document.getElementById('popup-container').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
+    }
+
+    function openExternalLink() {
+        window.location.href = "https://unblockedgamesatschool.github.io";
     }
 </script>
 
