@@ -60,11 +60,23 @@
             font-size: 16px;
             margin-right: 10px;
         }
+
+        /* Style for the "Open Popup" button */
+        #open-popup-btn {
+            padding: 15px;
+            background-color: #3498db; /* Button background color */
+            color: white; /* Button text color */
+            border: none;
+            border-radius: 20px; /* Make it rounded */
+            cursor: pointer;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
 
-<button onclick="openPopup()">Open Popup</button>
+<!-- Updated style for the "Open Popup" button -->
+<button id="open-popup-btn" onclick="openPopup()">Open Popup</button>
 
 <div id="overlay"></div>
 <div id="popup-container">
