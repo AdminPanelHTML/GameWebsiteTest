@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Website</title>
+    <title>Animated Background</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,8 +14,20 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: linear-gradient(to right, #3498db, #8e44ad);
+            animation: changeColors 10s infinite alternate; /* Set the animation properties */
             color: white;
+        }
+
+        @keyframes changeColors {
+            0% {
+                background: linear-gradient(to right, #3498db, #8e44ad);
+            }
+            50% {
+                background: linear-gradient(to right, #8e44ad, #3498db);
+            }
+            100% {
+                background: linear-gradient(to right, #3498db, #8e44ad);
+            }
         }
 
         header {
@@ -71,23 +83,11 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 18px;
-            color: #333;
-        }
 
-        .popup-button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-    </style>
-</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
 <body>
 
 <header>
