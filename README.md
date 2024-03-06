@@ -1,6 +1,5 @@
-# Unbl0ck3dGamers, Welcome.
-We are currently making a chrome app javascript that will pop up a gui with all of the games we have acsess to!
-# Check "$ SITES " For the sites!
-
-
-# WE ARE MAKING A WEBSITE FULL OF GAMES POWERED BY CHATGBT!
+# HOW TO USE THE BETA WEBSITE!
+- 1. Download the file "index" (Don't worry about the "beta")
+- 2. Open the file, if it doesn't work "open with" any browser that supports .HTML file types.
+- 3. Check for updates on this "REPO"!
+(If you want a list of unblocked games check "$ Sites")
