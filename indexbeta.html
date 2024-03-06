@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Popup</title>
+    <title>Animated Popup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            height: 100vh;
             background: linear-gradient(to right, #3498db, #8e44ad);
-            color: white;
         }
 
         #popup-container {
@@ -30,7 +27,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 1;
             color: white;
-            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
 
         #overlay {
@@ -42,6 +40,15 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 0;
+        }
+
+        #close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            color: white;
         }
 
         .popup-button {
@@ -56,7 +63,8 @@
             margin-right: 10px;
         }
 
-        .open-popup-btn {
+        /* Style for the "Open Popup" button */
+        #open-popup-btn {
             padding: 15px;
             background-color: #3498db; /* Button background color */
             color: white; /* Button text color */
@@ -64,66 +72,64 @@
             border-radius: 20px; /* Make it rounded */
             cursor: pointer;
             font-size: 18px;
-            margin: 10px;
-        }
-
-        .website-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="website-title">My Awesome Website</div>
-
-<!-- Only the "GAMES" button -->
-<button class="open-popup-btn" onclick="openPopup('Games')">GAMES</button>
+<!-- Updated style for the "Open Popup" button -->
+<button id="open-popup-btn" onclick="openPopup()">Open Popup</button>
 
 <div id="overlay"></div>
 <div id="popup-container">
     <span id="close-btn" onclick="closePopup()">&times;</span>
-    <h2 id="popup-title">Popup Title</h2>
-    <p>This is a simple popup with rounded edges.</p>
+    <h2>Animated Popup</h2>
+    <p>This is a simple animated popup with rounded edges.</p>
     
     <!-- More buttons inside the popup -->
     <button class="popup-button" onclick="openExternalLink()">Open External Link</button>
     <button class="popup-button" onclick="performAction()">Another Action</button>
     <button class="popup-button" onclick="yetAnotherAction()">Yet Another Action</button>
-    <button class="popup-button" onclick="additionalAction()">Additional Action</button>
-    <!-- Add more buttons as needed -->
 </div>
 
 <script>
-    function openPopup(title) {
-        document.getElementById('popup-title').innerText = title;
-        document.getElementById('popup-container').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
+    function openPopup() {
+        var popup = document.getElementById('popup-container');
+        var overlay = document.getElementById('overlay');
+
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+
+        // Triggering a reflow to enable the transition
+        void popup.offsetWidth;
+
+        popup.style.opacity = '1';
     }
 
     function closePopup() {
-        document.getElementById('popup-container').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
+        var popup = document.getElementById('popup-container');
+        var overlay = document.getElementById('overlay');
+
+        popup.style.opacity = '0';
+
+        setTimeout(function () {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }, 300); // Wait for the transition to complete (300ms)
     }
 
-    function GITHUB GAMES () {
+    function openExternalLink() {
         // You can modify this link to the desired URL
         window.location.href = "https://unblockedgamesatschool.github.io";
     }
 
-    function Now.gg Roblox () {
+    function performAction() {
         alert("Performing another action!");
     }
 
     function yetAnotherAction() {
         alert("Yet another action!");
     }
-
-    function additionalAction() {
-        alert("Additional action!");
-    }
-    <!-- Add more functions for additional buttons as needed -->
 </script>
 
 </body>
