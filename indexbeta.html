@@ -86,8 +86,10 @@
     <h2>Animated Popup</h2>
     <p>This is a simple animated popup with rounded edges.</p>
     
+    <!-- Updated the first button to navigate to a different URL -->
+    <button class="popup-button" onclick="window.location.href='https://github.com/UnblockedGamesgithubio/GameWebsiteTest'">Visit GitHub Repo</button>
+    
     <!-- More buttons inside the popup -->
-    <button class="popup-button" onclick="openExternalLink()">Open External Link</button>
     <button class="popup-button" onclick="performAction()">Another Action</button>
     <button class="popup-button" onclick="yetAnotherAction()">Yet Another Action</button>
 </div>
@@ -116,11 +118,6 @@
             popup.style.display = 'none';
             overlay.style.display = 'none';
         }, 300); // Wait for the transition to complete (300ms)
-    }
-
-    function openExternalLink() {
-        // You can modify this link to the desired URL
-        window.location.href = "https://unblockedgamesatschool.github.io";
     }
 
     function performAction() {
