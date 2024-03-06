@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup Demo</title>
+    <title>Website Popup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(to right, #3498db, #8e44ad);
+            color: white;
         }
 
         #popup-container {
@@ -21,87 +24,82 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            z-index: 1;
-            overflow: hidden;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        #popup-header {
-            background: #3498db;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 20px;
-            border-radius: 15px 15px 0 0;
-        }
-
-        #close-btn {
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 18px;
-            color: white;
-        }
-
-        .popup-content {
             padding: 20px;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
         }
 
         .popup-button {
-            display: block;
-            margin-top: 15px;
+            margin-top: 10px;
             padding: 10px;
-            background-color: #3498db;
-            color: white;
+            background-color: #fff; /* Button background color */
+            color: #3498db; /* Button text color */
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            text-align: center;
+            margin-right: 10px;
         }
 
-        /* Style for the "Open Popup" button */
-        #open-popup-btn {
+        .open-popup-btn {
             padding: 15px;
-            background-color: #3498db;
-            color: white;
+            background-color: #3498db; /* Button background color */
+            color: white; /* Button text color */
             border: none;
-            border-radius: 20px;
+            border-radius: 20px; /* Make it rounded */
             cursor: pointer;
             font-size: 18px;
+            margin: 10px;
+        }
+
+        .website-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-<!-- Updated style for the "Open Popup" button -->
-<button id="open-popup-btn" onclick="openPopup()">Open Popup</button>
+<div class="website-title">My Awesome Website</div>
+
+<!-- Three "Open Popup" buttons -->
+<button class="open-popup-btn" onclick="openPopup('Games')">GAMES</button>
+<button class="open-popup-btn" onclick="openPopup('Apps')">APPS</button>
+<button class="open-popup-btn" onclick="openPopup('AboutUs')">ABOUT US</button>
 
 <div id="overlay"></div>
 <div id="popup-container">
-    <div id="popup-header">
-        <span id="close-btn" onclick="closePopup()">&times;</span>
-        Popup Header
-    </div>
-    <div class="popup-content">
-        <p>This is a simple popup with rounded edges.</p>
-        
-        <!-- More buttons inside the popup -->
-        <button class="popup-button" onclick="openExternalLink()">Open External Link</button>
-        <button class="popup-button" onclick="performAction()">Another Action</button>
-        <button class="popup-button" onclick="yetAnotherAction()">Yet Another Action</button>
-        <button class="popup-button" onclick="additionalAction()">Additional Action</button>
-        <!-- Add more buttons as needed -->
-    </div>
+    <span id="close-btn" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title">Popup Title</h2>
+    <p>This is a simple popup with rounded edges.</p>
+    
+    <!-- More buttons inside the popup -->
+    <button class="popup-button" onclick="openExternalLink()">Open External Link</button>
+    <button class="popup-button" onclick="performAction()">Another Action</button>
+    <button class="popup-button" onclick="yetAnotherAction()">Yet Another Action</button>
+    <button class="popup-button" onclick="additionalAction()">Additional Action</button>
+    <!-- Add more buttons as needed -->
 </div>
 
 <script>
-    function openPopup() {
+    function openPopup(title) {
+        document.getElementById('popup-title').innerText = title;
         document.getElementById('popup-container').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
     }
