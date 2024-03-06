@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Popup</title>
+    <title>Animated Popup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,6 +27,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 1;
             color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
 
         #overlay {
@@ -81,29 +83,41 @@
 <div id="overlay"></div>
 <div id="popup-container">
     <span id="close-btn" onclick="closePopup()">&times;</span>
-    <h2>Simple Popup</h2>
-    <p>This is a simple popup with rounded edges.</p>
+    <h2>Animated Popup</h2>
+    <p>This is a simple animated popup with rounded edges.</p>
+    
+    <!-- Updated the first button to navigate to a different URL -->
+    <button class="popup-button" onclick="window.location.href='https://github.com/UnblockedGamesgithubio/GameWebsiteTest'">Visit GitHub Repo</button>
     
     <!-- More buttons inside the popup -->
-    <button class="popup-button" onclick="openExternalLink()">Open External Link</button>
     <button class="popup-button" onclick="performAction()">Another Action</button>
     <button class="popup-button" onclick="yetAnotherAction()">Yet Another Action</button>
 </div>
 
 <script>
     function openPopup() {
-        document.getElementById('popup-container').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
+        var popup = document.getElementById('popup-container');
+        var overlay = document.getElementById('overlay');
+
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+
+        // Triggering a reflow to enable the transition
+        void popup.offsetWidth;
+
+        popup.style.opacity = '1';
     }
 
     function closePopup() {
-        document.getElementById('popup-container').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
+        var popup = document.getElementById('popup-container');
+        var overlay = document.getElementById('overlay');
 
-    function openExternalLink() {
-        // You can modify this link to the desired URL
-        window.location.href = "https://unblockedgamesatschool.github.io";
+        popup.style.opacity = '0';
+
+        setTimeout(function () {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }, 300); // Wait for the transition to complete (300ms)
     }
 
     function performAction() {
